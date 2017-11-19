@@ -10,12 +10,17 @@
 <body>
   
   <div id="app">
-    <button v-on:click="increment($event, 2)">Passing events and arguments to functions</button>
+    <!-- Passing events and arguments to functions: -->
+    <button v-on:click="increment($event, 2)">Increment 2</button>
     <p>{{ counter }}</p>
+    <!-- Using mousemove and event modifiers -->
     <p v-on:mousemove="updateCoordinates">
       Coordinates: {{ x }}, {{ y }}
        - <span v-on:mousemove.stop="">|| e.stopPropagation Vue alternative. There's also .prevent ||</span>
     </p>
+    <!-- Use 'v-model' for 2-way data binding: -->
+    <input type="text" v-model="phil">
+    <p>{{ phil }}</p>
   </div>
   
   <script src="app.js"></script>
