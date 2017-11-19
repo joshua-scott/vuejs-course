@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  
+  <div id="app">
+    <button v-on:click="increment($event, 2)">Passing events and arguments to functions</button>
+    <p>{{ counter }}</p>
+    <p v-on:mousemove="updateCoordinates">
+      Coordinates: {{ x }}, {{ y }}
+       - <span v-on:mousemove.stop="">|| e.stopPropagation Vue alternative. There's also .prevent ||</span>
+    </p>
+  </div>
+  
+  <script src="app.js"></script>
+
+</body>
+</html>
