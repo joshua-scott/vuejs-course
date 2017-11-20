@@ -13,10 +13,9 @@ new Vue({
   },
   watch: {
     result() {
-      const vm = this;
       setTimeout(() => {
-        vm.value = 0;
-      }, vm.duration * 1000);
+        this.value = 0;
+      }, this.duration * 1000);
     }
   }
 })
