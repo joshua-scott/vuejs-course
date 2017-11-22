@@ -16,8 +16,8 @@ new Vue({
     randomNum(max) {
       return Math.floor(Math.random() * max + 1);
     },
-    pushEvent(action, actor, receiver, amount) {
-      this.events.push({
+    addEvent(action, actor, receiver, amount) {
+      this.events.unshift({
         action,
         actor,
         receiver,
@@ -28,20 +28,20 @@ new Vue({
       const maxDamage = attackType === 'special' ? 30 : 15;
       const actualDamage = this.randomNum(maxDamage);
       this.monsterHealth -= actualDamage;
-      this.pushEvent('attack', 'player', 'monster', actualDamage);
+      this.addEvent('attack', 'player', 'monster', actualDamage);
       this.monsterAttack();
     },
     monsterAttack() {
       const actualDamage = this.randomNum(15);
       this.playerHealth -= actualDamage;
-      this.pushEvent('attack', 'monster', 'player', actualDamage);
+      this.addEvent('attack', 'monster', 'player', actualDamage);
       this.checkForEndGame();
     },
     heal() {
       const amountHealed = 10;
       this.playerHealth += amountHealed;
       if (this.playerHealth > 100) this.playerHealth = 100;
-      this.pushEvent('heal', 'player', 'player', amountHealed);
+      this.addEvent('heal', 'player', 'player', amountHealed);
       this.monsterAttack();
     },
     checkForEndGame() {
