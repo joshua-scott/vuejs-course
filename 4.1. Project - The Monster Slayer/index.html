@@ -41,7 +41,7 @@
             <button id="heal" @click="heal">HEAL</button>
         </div>
     </section>
-    <section v-if="isPlaying && playerHealth < 100 && monsterHealth < 100" class="row log">
+    <section v-if="events.length > 0" class="row log">
         <div class="small-12 columns">
             <ul>
                 <li v-for="event in events" :class="`${event.actor}-turn`">
