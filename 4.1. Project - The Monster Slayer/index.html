@@ -34,14 +34,14 @@
             <button id="start-game" @click="startGame">START NEW GAME</button>
         </div>
     </section>
-    <section v-if="isPlaying" class="row controls">
+    <section class="row controls" v-if="isPlaying">
         <div class="small-12 columns">
             <button id="attack" @click="attack('standard')">ATTACK</button>
             <button id="special-attack" @click="attack('special')">SPECIAL ATTACK</button>
             <button id="heal" @click="heal">HEAL</button>
         </div>
     </section>
-    <section v-if="events.length > 0" class="row log">
+    <section class="row log" v-if="events.length > 0">
         <div class="small-12 columns">
             <ul>
                 <li v-for="event in events" :class="`${event.actor}-turn`">
