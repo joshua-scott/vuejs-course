@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <app-header />
-        <app-servers />
+        <servers />
         <app-footer />
     </div>
 </template>
@@ -13,9 +13,9 @@
 
   export default {
     components: {
-      'app-header': Header,
-      'app-footer': Footer,
-      'app-servers': Servers
+      appHeader: Header,
+      appFooter: Footer,
+      Servers
     }
   }
 </script>

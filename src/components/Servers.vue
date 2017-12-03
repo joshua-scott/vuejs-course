@@ -10,7 +10,7 @@
           </li>
       </ul>
     </div>
-    <app-server-details />
+    <server-details />
   </div>
 </template>
 
@@ -19,7 +19,7 @@
 
   export default {
     components: {
-      'app-server-details': ServerDetails
+      ServerDetails
     }
   }
 </script>
