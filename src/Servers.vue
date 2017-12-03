@@ -16,6 +16,7 @@
 
 <script>
   import ServerDetails from './ServerDetails.vue';
+  
   export default {
     components: {
       'app-server-details': ServerDetails
