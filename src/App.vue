@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <app-header></app-header>
-        <app-servers></app-servers>
-        <app-footer></app-footer>
+        <app-header />
+        <app-servers />
+        <app-footer />
     </div>
 </template>
 

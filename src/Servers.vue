@@ -10,13 +10,13 @@
           </li>
       </ul>
     </div>
-    <app-server-details></app-server-details>
+    <app-server-details />
   </div>
 </template>
 
 <script>
   import ServerDetails from './ServerDetails.vue';
-  
+
   export default {
     components: {
       'app-server-details': ServerDetails
