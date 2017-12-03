@@ -26,12 +26,12 @@
     },
     data() {
       return {
-        name: 'Max'
+        name: 'Mario'
       }
     },
     methods: {
       changeName() {
-        this.name = this.name === 'Max' ? 'Anna' : 'Max';
+        this.name = this.name === 'Mario' ? 'Luigi' : 'Mario';
       }
     }
   }
