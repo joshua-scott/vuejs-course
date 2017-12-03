@@ -3,13 +3,18 @@
     <h1>The User Component</h1>
     <p>I'm an awesome User!</p>
     <button @click="changeName">Change my Name</button>
+    <p>The name is now {{ name }}</p>
     <hr>
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-        <app-user-detail :myName="name"></app-user-detail>
+        <app-user-detail 
+          :myName="name"
+          :myGame="game"
+          @nameChanged="updateGame"
+        />
       </div>
       <div class="col-xs-12 col-sm-6">
-        <app-user-edit></app-user-edit>
+        <app-user-edit />
       </div>
     </div>
   </div>
@@ -26,12 +31,21 @@
     },
     data() {
       return {
-        name: 'Mario'
+        name: 'Mario',
+        game: 'Mario'
       }
     },
     methods: {
+      updateGame() {
+        this.game = this.game === 'Mario' ? 'Zelda' : 'Mario';
+        this.changeName();
+      },
       changeName() {
-        this.name = this.name === 'Mario' ? 'Luigi' : 'Mario';
+        if (this.game === 'Mario') {
+          this.name = this.name === 'Mario' ? 'Luigi' : 'Mario';
+        } else {
+          this.name = this.name === 'Link' ? 'Zelda' : 'Link';
+        }
       }
     }
   }

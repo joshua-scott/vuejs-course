@@ -4,6 +4,7 @@
     <p>Many Details</p>
     <p>User Name: {{ myName }}</p>
     <p>User Name reversed: {{ reversedName }}</p>
+    <button @click="swapMarioZelda">Switch between Mario and Zelda</button>
   </div>
 </template>
 
@@ -13,6 +14,16 @@
       myName: {
         type: String,
         required: true
+      }
+    },
+    methods: {
+      swapMarioZelda() {
+        if (['Mario', 'Luigi'].includes(this.myName)) {
+          this.myName = 'Link';
+        } else {
+          this.myName = 'Mario';
+        }
+        this.$emit('nameChanged', this.myName);
       }
     },
     computed: {
