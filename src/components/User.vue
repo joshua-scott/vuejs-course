@@ -8,12 +8,16 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <app-user-detail 
-          :myName="name"
+          :userName="name"
           @nameChanged="changeName"
+          :userAge="age"
         />
       </div>
       <div class="col-xs-12 col-sm-6">
-        <app-user-edit />
+        <app-user-edit 
+          :userAge="age"
+          :incrementAge="incrementAge"
+        />
       </div>
     </div>
   </div>
@@ -30,12 +34,16 @@
     },
     data() {
       return {
-        name: 'Mario'
+        name: 'Mario',
+        age: 27
       }
     },
     methods: {
       changeName() {
         this.name = this.name === 'Mario' ? 'Luigi' : 'Mario';
+      },
+      incrementAge() {
+        this.age++;
       }
     }
   }
