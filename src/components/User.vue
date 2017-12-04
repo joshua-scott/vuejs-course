@@ -2,15 +2,14 @@
   <div class="component">
     <h1>The User Component</h1>
     <p>I'm an awesome User!</p>
-    <button @click="changeName">Change my Name</button>
+    <button @click="changeName">Change name from parent component</button>
     <p>The name is now {{ name }}</p>
     <hr>
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <app-user-detail 
           :myName="name"
-          :myGame="game"
-          @nameChanged="updateGame"
+          @nameChanged="changeName"
         />
       </div>
       <div class="col-xs-12 col-sm-6">
@@ -31,21 +30,12 @@
     },
     data() {
       return {
-        name: 'Mario',
-        game: 'Mario'
+        name: 'Mario'
       }
     },
     methods: {
-      updateGame() {
-        this.game = this.game === 'Mario' ? 'Zelda' : 'Mario';
-        this.changeName();
-      },
       changeName() {
-        if (this.game === 'Mario') {
-          this.name = this.name === 'Mario' ? 'Luigi' : 'Mario';
-        } else {
-          this.name = this.name === 'Link' ? 'Zelda' : 'Link';
-        }
+        this.name = this.name === 'Mario' ? 'Luigi' : 'Mario';
       }
     }
   }
