@@ -4,6 +4,7 @@
       <div class="col-xs-12">
         <app-quote>
           <h2 slot="title">Here we're using Slots</h2>
+          <span slot="subtitle" class="subtitle">There is indeed text here, so this is what's shown. But if this wasn't passed down, the fallback text (from the Quote component itself) would be displayed.</span>
           <div>
             <p>This allows us to put html code *inside* other components... groovy!</p>
             <p>When using slots:</p>
@@ -31,5 +32,9 @@
 <style>
   li {
     list-style: none;
+  }
+
+  .subtitle {
+    color: #ccc;
   }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div>
     <slot name="title"></slot>
+    <slot name="subtitle">This text is 'fallback content'; it's shown because this particular slot hasn't been passed down.</slot>
     <slot></slot>
   </div>
 </template>
