@@ -4,7 +4,7 @@
       <div class="col-xs-12">
         <app-quote>
           <h2 slot="title">Here we're using Slots</h2>
-          <div slot="content">
+          <div>
             <p>This allows us to put html code *inside* other components... groovy!</p>
             <p>When using slots:</p>
             <ul>
