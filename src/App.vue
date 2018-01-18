@@ -1,18 +1,18 @@
 <template>
-    <div class="container">
-        <app-new-quote @quoteAdded="newQuote"></app-new-quote>
-        <app-quote-grid :quotes="quotes"></app-quote-grid>
-        <div class="row">
-          <div class="col-sm-12 text-center">
-            <div class="alert alert-info">Simply click on a quote to delete it.</div>
-          </div>
+  <div class="container">
+      <app-new-quote @quoteAdded="newQuote"></app-new-quote>
+      <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <div class="alert alert-info">Simply click on a quote to delete it.</div>
         </div>
-    </div>
+      </div>
+  </div>
 </template>
 
 <script>
-import QuoteGrid from "./components/QuoteGrid.vue";
-import NewQuote from "./components/NewQuote.vue";
+import QuoteGrid from "./components/QuoteGrid.vue"
+import NewQuote from "./components/NewQuote.vue"
 
 export default {
   data: function() {
@@ -31,10 +31,13 @@ export default {
   methods: {
     newQuote(text) {
       if (this.quotes.length + 1 <= this.maxQuotes) {
-        this.quotes.push(text);
+        this.quotes.push(text)
       } else {
-        alert(`You already have ${this.maxQuotes} quotes!`);
+        alert(`You already have ${this.maxQuotes} quotes!`)
       }
+    },
+    deleteQuote(index) {
+      this.quotes.splice(index, 1)
     }
   },
   components: {
