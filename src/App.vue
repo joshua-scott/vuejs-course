@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+      <app-progress-bar :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-progress-bar>
       <app-new-quote @quoteAdded="newQuote"></app-new-quote>
       <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
       <div class="row">
@@ -11,8 +12,9 @@
 </template>
 
 <script>
-import QuoteGrid from "./components/QuoteGrid.vue"
-import NewQuote from "./components/NewQuote.vue"
+import QuoteGrid from './components/QuoteGrid.vue'
+import NewQuote from './components/NewQuote.vue'
+import ProgressBar from './components/ProgressBar.vue'
 
 export default {
   data: function() {
@@ -30,7 +32,7 @@ export default {
   },
   methods: {
     newQuote(text) {
-      if (this.quotes.length + 1 <= this.maxQuotes) {
+      if (this.quotes.length < this.maxQuotes) {
         this.quotes.push(text)
       } else {
         alert(`You already have ${this.maxQuotes} quotes!`)
@@ -40,9 +42,15 @@ export default {
       this.quotes.splice(index, 1)
     }
   },
+  // calculated: {
+  //   progress() {
+  //     return (quotes / maxQuotes) * 100;
+  //   }
+  // },
   components: {
     appQuoteGrid: QuoteGrid,
-    appNewQuote: NewQuote
+    appNewQuote: NewQuote,
+    appProgressBar: ProgressBar
   }
 };
 </script>
